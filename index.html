@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de Servicio Situacional · Farmatodo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2545; --blue:#2F6FED; --blue-soft:#EAF1FF; --blue-soft2:#DCE9FF;
+  --ftred:#E4002B; --gold:#F5B400; --teal:#00A19A;
+  --text-mid:#4A5568; --text-soft:#8A94A6;
+  --card:#FFFFFF; --line:#E5EAF2;
+  --amber:#B7791F; --amber-bg:#FBF1DF; --red:#C23B3B; --red-bg:#FBE9E9; --green:#1F9254; --green-bg:#E8F6EE;
+  --shadow:0 4px 24px rgba(20,40,80,0.07); --shadow-md:0 12px 40px rgba(20,40,80,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Nunito',sans-serif;color:var(--navy);line-height:1.5;
+  background:
+    radial-gradient(1200px 600px at 15% -10%, #dfeaff 0%, transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, #eee6fb 0%, transparent 55%),
+    #f7f9fd;
+  min-height:100vh;
+}
+
+.wrap{max-width:900px;margin:0 auto;padding:36px 6vw 60px;}
+
+/* top bar */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:34px;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand .logo-slot{height:26px;display:flex;align-items:center;}
+.brand .logo-slot img{height:26px;display:block;}
+.brand .word{font-weight:800;font-size:14.5px;color:var(--navy);letter-spacing:.01em;}
+.pill-tag{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);background:var(--blue-soft);border:1px solid var(--blue-soft2);padding:7px 14px;border-radius:100px;}
+
+/* hero */
+.hero{margin-bottom:8px;}
+.hero .greet{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:8px;}
+.hero h1{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-0.01em;line-height:1.18;color:var(--navy);}
+.hero p.sub{margin-top:12px;font-size:14.5px;color:var(--text-mid);font-weight:500;max-width:600px;}
+
+/* summary bar (mimics input pill) */
+.summary-bar{
+  margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:100px;
+  padding:14px 10px 14px 20px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow);
+}
+.summary-bar .ic{color:var(--blue);font-size:16px;flex-shrink:0;}
+.summary-bar .txt{font-size:13.5px;color:var(--text-mid);font-weight:700;flex:1;}
+.summary-bar .txt b{color:var(--navy);}
+.summary-bar .go{
+  width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:15px;flex-shrink:0;
+}
+
+/* quick chips */
+.chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.chip{background:#fff;border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:12.5px;font-weight:700;color:var(--navy);box-shadow:0 1px 3px rgba(20,40,80,.04);}
+.chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;position:relative;top:-1px;}
+
+/* sections */
+section{margin-top:40px;}
+.section-head{margin-bottom:16px;}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:5px;}
+.section-head h2{font-size:19px;font-weight:800;color:var(--navy);}
+.section-head p{font-size:13px;color:var(--text-soft);font-weight:600;margin-top:5px;}
+
+/* hypothesis cards */
+.dim-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media (max-width:760px){.dim-grid{grid-template-columns:1fr;}}
+.dim-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);}
+.dim-card .tagline{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--dc);margin-bottom:10px;}
+.dim-card .tagline .dot{width:7px;height:7px;border-radius:50%;background:var(--dc);}
+.dim-card h3{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:7px;}
+.dim-card .obj{font-size:12.5px;color:var(--text-mid);font-weight:500;line-height:1.55;}
+
+/* scenario card */
+.scenario-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);}
+.scenario-header{background:var(--blue-soft);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);}
+.scenario-header .lbl{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);}
+.scenario-header .pill{background:var(--navy);color:#fff;font-size:10px;font-weight:800;padding:5px 12px;border-radius:100px;}
+.scenario-body{padding:24px 24px 26px;}
+.scenario-q{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:18px;max-width:640px;line-height:1.42;}
+.opt-row{display:grid;grid-template-columns:26px 1fr auto;gap:14px;align-items:center;padding:13px 15px;border:1px solid var(--line);border-radius:14px;margin-bottom:9px;background:#fafbfe;}
+.opt-row .letter{font-weight:800;color:var(--text-soft);font-size:13px;}
+.opt-row .txt{font-size:13px;color:var(--text-mid);font-weight:600;}
+@media (max-width:600px){.opt-row{grid-template-columns:18px 1fr;} .opt-row .badge{grid-column:1/-1;justify-self:start;margin-top:4px;}}
+.badge{font-size:10.5px;font-weight:800;padding:5px 12px;border-radius:100px;white-space:nowrap;}
+.badge.ok{background:var(--green-bg);color:var(--green);}
+.badge.actitud{background:var(--amber-bg);color:var(--amber);}
+.badge.conocimiento{background:var(--red-bg);color:var(--red);}
+.scenario-note{margin-top:16px;font-size:12px;color:var(--text-soft);font-weight:600;border-top:1px dashed var(--line);padding-top:14px;line-height:1.6;}
+.scenario-note b{color:var(--navy);}
+
+/* validity card (mimics "adopción" progress card) */
+.valid-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 26px;box-shadow:var(--shadow);}
+.valid-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:18px;}
+.valid-top .t{font-size:15px;font-weight:800;color:var(--navy);}
+.valid-top .n{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--blue);}
+.bar-track{background:#eef1f7;border-radius:100px;height:12px;overflow:hidden;display:flex;}
+.bar-fill{height:100%;}
+.bar-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:11.5px;color:var(--text-soft);font-weight:700;}
+.legend-row{display:flex;gap:20px;margin-top:14px;flex-wrap:wrap;}
+.legend-item{font-size:12px;color:var(--text-mid);font-weight:700;display:flex;align-items:center;gap:7px;}
+.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+@media (max-width:640px){.metric-grid{grid-template-columns:1fr;}}
+.metric-mini{background:var(--blue-soft);border-radius:14px;padding:14px 16px;}
+.metric-mini .lbl{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);}
+.metric-mini .num{font-size:19px;font-weight:800;color:var(--navy);margin-top:5px;}
+.quota-note{margin-top:16px;font-size:12.5px;color:var(--text-mid);font-weight:600;line-height:1.6;}
+.quota-note b{color:var(--navy);}
+
+/* timeline */
+.tl-row{display:flex;align-items:flex-start;gap:0;position:relative;margin-top:6px;}
+.tl-row::before{content:'';position:absolute;top:6px;left:0;right:0;height:2px;background:var(--line);}
+.tl-step{flex:1;padding-right:10px;position:relative;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--blue);margin-bottom:10px;position:relative;z-index:2;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--blue);}
+.tl-step .wk{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);}
+.tl-step h4{font-size:12.5px;font-weight:800;color:var(--navy);margin:4px 0 2px;}
+@media (max-width:760px){.tl-row{flex-direction:column;gap:16px;} .tl-row::before{display:none;}}
+
+/* decision block */
+.decision{background:var(--navy);border-radius:24px;padding:28px 30px;color:#fff;box-shadow:var(--shadow-md);}
+.decision h2{color:#fff;font-size:18px;font-weight:800;margin-bottom:16px;}
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+@media (max-width:640px){.check-grid{grid-template-columns:1fr;}}
+.check-item{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px;}
+.check-item .box{width:15px;height:15px;border:2px solid var(--gold);border-radius:5px;flex-shrink:0;margin-top:2px;}
+.check-item p{font-size:12.5px;color:rgba(255,255,255,.9);font-weight:600;}
+.decision-note{margin-top:18px;font-size:12px;color:#b9c8e8;font-weight:500;line-height:1.6;border-top:1px solid rgba(255,255,255,.14);padding-top:15px;}
+.decision-note b{color:#fff;}
+
+footer{text-align:center;padding:30px 0 10px;font-size:11px;color:var(--text-soft);font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <!-- Logo real: reemplaza el src de abajo por el archivo del logo de Farmatodo -->
+      <div class="logo-slot"><img src="farmatodo-logo.png" alt="Farmatodo" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'word',textContent:'Farmatodo'}))"></div>
+    </div>
+    <span class="pill-tag">Comité ejecutivo · Servicio al cliente</span>
+  </div>
+
+  <div class="hero">
+    <div class="greet">Diagnóstico de Servicio Situacional</div>
+    <h1>¿Las brechas de servicio son de conocimiento, de actitud, o de una tienda puntual?</h1>
+    <p class="sub">Una encuesta corta de juicio situacional para separar las tres causas — con corrección masiva y automatizable sobre los 8.000 colaboradores de tienda en Venezuela, Colombia y Argentina.</p>
+
+    <div class="summary-bar">
+      <span class="ic">✦</span>
+      <span class="txt"><b>10 preguntas situacionales</b> + 2 abiertas · <b>8–10 min</b> de duración · censo en <b>VEN · COL · ARG</b> sobre <b>8.000</b> colaboradores</span>
+      <span class="go">→</span>
+    </div>
+
+    <div class="chip-row">
+      <span class="chip"><span class="dot" style="background:var(--teal)"></span>Censo en 3 países</span>
+      <span class="chip"><span class="dot" style="background:var(--amber)"></span>3 causas diagnosticadas</span>
+      <span class="chip"><span class="dot" style="background:var(--blue)"></span>~6 semanas</span>
+      <span class="chip"><span class="dot" style="background:var(--ftred)"></span>50–60% respuesta esperada</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="valid-card" style="padding:22px 24px;">
+      <div class="section-head" style="margin-bottom:14px;">
+        <div class="eyebrow">Por qué esta encuesta y no solo el CSAT</div>
+        <h2 style="font-size:16.5px;">El CSAT dice <u>qué</u> está fallando. Esta encuesta dice <u>por qué</u>.</h2>
+      </div>
+      <div class="metric-grid" style="grid-template-columns:repeat(2,1fr);">
+        <div class="metric-mini" style="background:var(--blue-soft2);">
+          <div class="lbl" style="color:var(--navy);">CSAT (hoy)</div>
+          <div class="num" style="font-size:14px;color:var(--navy);font-weight:700;margin-top:8px;">Detecta la tienda, el momento y la caída en la calificación del cliente.</div>
+        </div>
+        <div class="metric-mini" style="background:var(--blue-soft);">
+          <div class="lbl">Diagnóstico situacional (propuesta)</div>
+          <div class="num" style="font-size:14px;color:var(--navy);font-weight:700;margin-top:8px;">Explica si esa caída es por conocimiento, actitud o un factor de cargo/tienda/área.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Qué mide</div>
+      <h2>Tres posibles orígenes de una misma brecha</h2>
+    </div>
+    <div class="dim-grid">
+      <div class="dim-card" style="--dc:var(--teal)">
+        <div class="tagline"><span class="dot"></span>Causa técnica</div>
+        <h3>Conocimiento</h3>
+        <div class="obj">No sabe qué hacer: desconoce el protocolo, el producto o el sistema.</div>
+      </div>
+      <div class="dim-card" style="--dc:var(--amber)">
+        <div class="tagline"><span class="dot"></span>Causa comportamental</div>
+        <h3>Actitud</h3>
+        <div class="obj">Sabe, pero no lo aplica: falta de empatía, paciencia o proactividad.</div>
+      </div>
+      <div class="dim-card" style="--dc:var(--ftred)">
+        <div class="tagline"><span class="dot"></span>Causa estructural</div>
+        <h3>Cargo / tienda / área</h3>
+        <div class="obj">La brecha se concentra en un segmento puntual, no en toda la compañía.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Cómo se ve una pregunta</div>
+      <h2>Encuesta de juicio situacional</h2>
+      <p>El colaborador solo ve el escenario. Cada opción está etiquetada por dentro para tabular la causa de forma automática.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="scenario-header">
+        <span class="lbl">Escenario · Mostrador · Disponibilidad de producto</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="scenario-q">Un cliente llega alterado porque el medicamento que reservó por teléfono no está disponible en tienda. ¿Qué haces?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Explico el protocolo de sustitución y ofrezco alternativas del mismo principio activo.</span><span class="badge ok">Correcta</span></div>
+        <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo que revise mejor su reserva la próxima vez, porque yo no gestioné ese pedido.</span><span class="badge actitud">Actitud</span></div>
+        <div class="opt-row"><span class="letter">C</span><span class="txt">No sé cómo proceden las reservas, así que lo remito a otro colaborador sin más explicación.</span><span class="badge conocimiento">Conocimiento</span></div>
+        <div class="scenario-note"><b>Por qué funciona:</b> ninguna opción suena obviamente "mala" — reduce el sesgo de responder lo que "se debería" decir, y la corrección es 100% automática.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Validez del dato</div>
+      <h2>Censo con cuotas mínimas, no muestra pequeña</h2>
+    </div>
+    <div class="valid-card">
+      <div class="valid-top">
+        <div class="t">Respuestas esperadas vs. universo total (VEN + COL + ARG)</div>
+        <div class="n">Meta 50–60%</div>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:55%;background:var(--blue)"></div>
+        <div class="bar-fill" style="width:45%;background:var(--blue-soft2)"></div>
+      </div>
+      <div class="bar-labels"><span>0</span><span>8.000 colaboradores</span></div>
+      <div class="legend-row">
+        <span class="legend-item"><span class="legend-dot" style="background:var(--blue)"></span>Respuestas esperadas · ≈4.000–4.800</span>
+        <span class="legend-item"><span class="legend-dot" style="background:var(--blue-soft2)"></span>Sin respuesta (estimado)</span>
+      </div>
+
+      <div class="metric-grid">
+        <div class="metric-mini"><div class="lbl">Universo</div><div class="num">8.000</div></div>
+        <div class="metric-mini"><div class="lbl">n mínimo (95% conf.)</div><div class="num">367–850</div></div>
+        <div class="metric-mini"><div class="lbl">Enfoque</div><div class="num" style="font-size:15px;">Censo en 3 países</div></div>
+      </div>
+      <div class="quota-note"><b>Para comparar por país, cargo, tienda o área</b> se necesita un mínimo por segmento: 30 respuestas por país, 15–20 por tienda, 30 por cargo, 30 por zona. Las tiendas por debajo del mínimo se agrupan por zona o tamaño en vez de reportarse solas.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Ruta</div>
+      <h2>~6 semanas de punta a punta</h2>
+    </div>
+    <div class="tl-row">
+      <div class="tl-step"><div class="tl-dot"></div><span class="wk">Sem. 1–2</span><h4>Diseño y validación</h4></div>
+      <div class="tl-step"><div class="tl-dot"></div><span class="wk">3 semanas</span><h4>Bajada a VEN, COL y ARG</h4></div>
+      <div class="tl-step"><div class="tl-dot"></div><span class="wk">1–1.5 sem.</span><h4>Análisis y cierre</h4></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="decision">
+      <h2>Para decidir hoy</h2>
+      <div class="check-grid">
+        <div class="check-item"><span class="box"></span><p>Aprobar el enfoque de censo (no muestra) con cuotas mínimas por país/tienda/cargo/zona.</p></div>
+        <div class="check-item"><span class="box"></span><p>Confirmar canal de envío y apoyo de gerentes de tienda en los 3 países.</p></div>
+        <div class="check-item"><span class="box"></span><p>Definir fecha de inicio de la ventana de respuesta (3 semanas).</p></div>
+        <div class="check-item"><span class="box"></span><p>Validar los escenarios con Servicio al Cliente y Talento Humano de cada país.</p></div>
+      </div>
+      <div class="decision-note"><b>Límite a tener presente:</b> las preguntas situacionales pueden sobreestimar el "buen juicio" porque la gente tiende a marcar lo que debería hacer. Se mitiga con opciones igualmente plausibles, pero no elimina el sesgo por completo.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="dim-card" style="--dc:var(--teal);border-radius:22px;padding:22px 24px;">
+      <div class="tagline"><span class="dot"></span>Iniciativa de seguimiento</div>
+      <h3 style="font-size:16px;">Cruzar los resultados con el CSAT</h3>
+      <div class="obj" style="font-size:13px;">Una vez cerrado el diagnóstico, cruzar el score de conocimiento/actitud de cada tienda con su CSAT histórico para confirmar qué causa explica mejor las caídas de satisfacción — y priorizar intervenciones (capacitación vs. coaching) donde ambas señales coincidan.</div>
+    </div>
+  </section>
+
+  <footer>Diagnóstico de Servicio Situacional · Farmatodo — Resumen ejecutivo para aprobación</footer>
+</div>
+</body>
+</html>
