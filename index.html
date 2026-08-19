@@ -131,6 +131,33 @@ section{margin-top:40px;}
 .decision-note b{color:#fff;}
 
 footer{text-align:center;padding:30px 0 10px;font-size:11px;color:var(--text-soft);font-weight:600;}
+
+/* tabs */
+.tabs-bar{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap;}
+.tab-btn2{background:#fff;border:1px solid var(--line);border-radius:100px;padding:10px 18px;font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;color:var(--text-mid);cursor:pointer;box-shadow:0 1px 3px rgba(20,40,80,.04);transition:all .15s;}
+.tab-btn2:hover{color:var(--navy);}
+.tab-btn2.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.tabpanel{display:none;}
+.tabpanel.active{display:block;}
+
+/* open question card */
+.open-q{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow);}
+.open-q .lbl{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:block;}
+.open-q .q{font-size:14.5px;font-weight:700;color:var(--navy);}
+
+/* data tables (CSAT tab) */
+table.datatable{width:100%;border-collapse:collapse;font-size:12.5px;}
+table.datatable thead th{position:sticky;top:0;background:#fff;text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-soft);padding:10px 12px;border-bottom:2px solid var(--line);font-weight:800;}
+table.datatable td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--navy);font-weight:600;}
+table.datatable td.num{font-weight:800;color:var(--text-mid);}
+table.datatable tr:last-child td{border-bottom:none;}
+.table-scroll{max-height:420px;overflow-y:auto;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow);}
+.table-scroll table.datatable{border:none;box-shadow:none;}
+
+.country-block{margin-bottom:36px;}
+.country-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.country-title .flag-dot{width:10px;height:10px;border-radius:50%;}
+
 </style>
 </head>
 <body>
@@ -160,8 +187,15 @@ footer{text-align:center;padding:30px 0 10px;font-size:11px;color:var(--text-sof
       <span class="chip"><span class="dot" style="background:var(--blue)"></span>~6 semanas</span>
       <span class="chip"><span class="dot" style="background:var(--ftred)"></span>50–60% respuesta esperada</span>
     </div>
+
+    <div class="tabs-bar">
+      <button class="tab-btn2 active" data-tab="propuesta" onclick="showTab('propuesta')">Propuesta metodológica</button>
+      <button class="tab-btn2" data-tab="miscelaneos" onclick="showTab('miscelaneos')">Encuesta Misceláneos</button>
+      <button class="tab-btn2" data-tab="farmacia" onclick="showTab('farmacia')">Encuesta Farmacia</button>
+    </div>
   </div>
 
+  <div id="tab-propuesta" class="tabpanel active">
   <section>
     <div class="valid-card" style="padding:22px 24px;">
       <div class="section-head" style="margin-bottom:14px;">
@@ -179,7 +213,7 @@ footer{text-align:center;padding:30px 0 10px;font-size:11px;color:var(--text-sof
         </div>
       </div>
       <div class="quota-note" style="margin-top:18px;">
-        El instrumento (10 preguntas situacionales + 2 abiertas) complementa la información del CSAT entendiendo no solo qué está fallando en la experiencia del cliente, sino <b>por qué ocurre y qué tipo de brecha existe en tienda</b>. A través de situaciones reales se identifica con mayor precisión la causa detrás de los resultados, para <b>definir acciones más efectivas para cada tienda o equipo</b> — capacitación, coaching o ajuste de proceso, según corresponda.
+        El instrumento (10 preguntas situacionales + 2 abiertas) complementa la información del CSAT entendiendo no solo qué está fallando en la experiencia del cliente, sino <b>por qué ocurre y qué tipo de brecha existe en tienda</b>. A través de situaciones reales se identifica con mayor precisión la causa detrás de los resultados, para <b>definir el tipo de capacitación más efectivo para cada tienda o equipo</b>.
       </div>
       <div class="quota-note" style="margin-top:12px;">
         Además, al aplicarse igual en los 3 países deja una <b>línea base comparable entre Venezuela, Colombia y Argentina</b>, y sirve para <b>medir después el impacto real</b> de cualquier programa de formación que se lance a partir de sus resultados.
@@ -277,7 +311,7 @@ footer{text-align:center;padding:30px 0 10px;font-size:11px;color:var(--text-sof
     <div class="dim-card" style="--dc:var(--teal);border-radius:22px;padding:22px 24px;">
       <div class="tagline"><span class="dot"></span>Iniciativa de seguimiento</div>
       <h3 style="font-size:16px;">Cruzar los resultados con el CSAT</h3>
-      <div class="obj" style="font-size:13px;">Una vez cerrado el diagnóstico, cruzar el score de conocimiento/actitud de cada tienda con su CSAT histórico para confirmar qué causa explica mejor las caídas de satisfacción — y priorizar intervenciones (capacitación vs. coaching) donde ambas señales coincidan.</div>
+      <div class="obj" style="font-size:13px;">Una vez cerrado el diagnóstico, cruzar el score de conocimiento/actitud de cada tienda con su CSAT histórico para confirmar qué causa explica mejor las caídas de satisfacción — y priorizar qué tipo de capacitación diseñar donde ambas señales coincidan.</div>
     </div>
   </section>
 
@@ -294,7 +328,349 @@ footer{text-align:center;padding:30px 0 10px;font-size:11px;color:var(--text-sof
     </div>
   </section>
 
+
+  </div><!-- /tab-propuesta -->
+
+  <div id="tab-miscelaneos" class="tabpanel">
+    <section style="margin-top:0;">
+      <div class="section-head">
+        <div class="eyebrow">Encuesta · Personal de misceláneos</div>
+        <h2>10 preguntas situacionales + 2 abiertas</h2>
+        <p>Pensada para el personal que atiende el área general de la tienda. Cada pregunta se plantea como "¿qué harías?" para que la respuesta refleje la conducta más probable, no la respuesta "correcta". Algunas situaciones se repiten con la encuesta de Farmacia por ser conductas de servicio transversales.</p>
+      </div>
+      
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 1 de 10 · Pasillo · Asesoría de producto</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se muestra indeciso al elegir entre dos productos de dermocosméticos?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le ofrezco mi asesoría, resaltando las características de cada producto para facilitar su decisión.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le indico cuál producto debe elegir para agilizar la venta.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Permito que el cliente elija por su cuenta mientras aprovecho para realizar otras tareas.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 2 de 10 · Mostrador · Búsqueda de producto</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se acerca al mostrador y te dice que necesita un producto urgentemente, pero no recuerda el nombre exacto?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le pregunto sobre las características del producto y trato de encontrar alternativas similares.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo que intente recordar mientras atiendo a otros clientes.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le sugiero que busque el producto en el anaquel para ver si encuentra lo que necesita.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 3 de 10 · Pasillo · Conocimiento de producto</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--amber);margin-bottom:10px;"><span class="dot"></span>Conducta: Personalizo el trato con el cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente solicita un champú para cabello graso y con caspa?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le recomiendo un champú específico para cabello graso con caspa, explicándole los beneficios.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le ofrezco cualquier champú de marca Farmatodo.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le sugiero que revise la etiqueta de cada champú para saber cuál puede funcionarle.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 4 de 10 · Caja · Política de descuentos</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente está molesto porque vio un descuento en la página web y no está reflejado en la tienda?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le ofrezco mi apoyo para realizar la compra por la app y así pueda recibir su descuento.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le comento que el descuento es únicamente en compras por la app.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Evado al cliente porque prefiero no tener problemas.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 5 de 10 · Mostrador · Disponibilidad e inventario</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente solicita 7 pañales de bebé, pero en la tienda solo tienes 4 disponibles?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Valido la disponibilidad en otras tiendas y le indico dónde hay la cantidad que necesita, o le ofrezco solicitar una transferencia.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le informo que hoy solo puede llevarse 4, pero que puede regresar la próxima semana para ver si llegaron más.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le pido al cliente que revise la disponibilidad en otras tiendas a través de la app o la web.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 6 de 10 · Caja · Cierre de la atención</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--ftred);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
+        <div class="scenario-q">¿Qué harías al terminar de atender a un cliente en caja?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: hasta pronto señor, gracias por su compra.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: gracias, siguiente en caja.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: listo, aquí tiene su factura, ya puede retirarse.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 7 de 10 · Pasillo · Comodidad del cliente</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="scenario-q">¿Qué harías si un joven toma en sus manos 3 cremas mientras recorre la tienda?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: aquí tiene una cesta para poner los productos y que esté más cómodo.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: le recomiendo que tome dos, para que no se le caigan.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: si quiere, deja las cremas aquí y las busca cuando vaya a pagar.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 8 de 10 · Fila en caja mientras se etiqueta un anaquel</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="scenario-q">¿Qué harías si estás etiquetando un anaquel y ves que se forma una fila en las cajas?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Pauso la actividad y me dirijo rápidamente al área de cajas para ayudar a agilizar la fila.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Continúo etiquetando, ya que veo que pronto disminuirá la fila.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Solicito a los clientes que tengan paciencia, asegurándoles que pronto llegará su turno.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 9 de 10 · Mostrador · Cliente molesto</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se molesta porque el precio del anaquel no coincide con el de la caja y te grita?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: entiendo su molestia, vamos a buscar una solución al problema.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: por favor, cálmese señor, así no lo puedo atender.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le pido que me respete.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 10 de 10 · Pasillo · Saludo</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--ftred);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
+        <div class="scenario-q">¿Qué harías si te cruzas en el pasillo con un cliente?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le sonrío y le digo: hola, bienvenido.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le hago un gesto con la cabeza en señal de respeto.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Lo saludo agitando mi mano.</span></div>
+      </div>
+    </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Preguntas abiertas</div>
+        <h2>Para ilustrar los hallazgos con casos reales</h2>
+      </div>
+      <div class="open-q">
+        <span class="lbl">Pregunta 11 de 12 · Abierta</span>
+        <div class="q">¿Cuál es la situación que más se te complica al momento de ofrecer un buen servicio?</div>
+      </div>
+      <div class="open-q">
+        <span class="lbl">Pregunta 12 de 12 · Abierta</span>
+        <div class="q">Cuéntanos una situación real en la que lograste sorprender a un cliente, dándole más de lo que esperaba. ¿Qué hiciste?</div>
+      </div>
+    </section>
+  </div><!-- /tab-miscelaneos -->
+
+  <div id="tab-farmacia" class="tabpanel">
+    <section style="margin-top:0;">
+      <div class="section-head">
+        <div class="eyebrow">Encuesta · Personal de farmacia (base y farmacéuticos)</div>
+        <h2>10 preguntas situacionales + 2 abiertas</h2>
+        <p>Pensada para el personal de farmacia, tanto base como farmacéuticos. Cada pregunta se plantea como "¿qué harías?" para que la respuesta refleje la conducta más probable, no la respuesta "correcta". Algunas situaciones se repiten con la encuesta de Misceláneos por ser conductas de servicio transversales.</p>
+      </div>
+      
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 1 de 10 · Mostrador · Disponibilidad de medicamento</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente llega alterado porque el medicamento que reservó por teléfono no está disponible en tienda?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Explico el protocolo de sustitución y ofrezco alternativas del mismo principio activo.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo que revise mejor su reserva la próxima vez, porque yo no gestioné ese pedido.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">No sé cómo proceden las reservas, así que lo remito a otro colaborador sin más explicación.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 2 de 10 · Farmacia · Protocolo de dosis</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si una señora te pregunta cuál es la dosis para tomarse una pastilla?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: no estoy seguro, permítame consultar con el farmacéutico y ya regreso.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: creo que si se toma 2 o 3 diarias le puede funcionar.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: tómese la cantidad que usted considere mejor.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 3 de 10 · Farmacia · Servicios de valor agregado</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--gold);margin-bottom:10px;"><span class="dot"></span>Conducta: Deleito al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se queja de un fuerte dolor lumbar y solicita el relajante muscular que le recetó su médico?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: veo que está muy adolorido; aquí contamos con servicio de inyectología para aplicarle de una vez el relajante intramuscular.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: sí claro, tengo estas dos opciones, ¿cuál prefiere?</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: tome su medicamento, hasta luego.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 4 de 10 · Farmacia · Indagación antes de recomendar</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se acerca a la farmacia preguntando si tienes algo para la gripa?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le pregunto cuántos años tiene el paciente y cuáles son sus síntomas antes de recomendar.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: claro, este medicamento seguro le puede ayudar.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: claro, tenemos medicamentos disponibles en el pasillo de atrás.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 5 de 10 · Farmacia · Acompañamiento</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="scenario-q">¿Qué harías si, mientras surtes un pasillo, un cliente te pregunta dónde se consiguen los multivitamínicos?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: permítame acompañarle para mostrarle.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: los conseguirá en el último pasillo, junto a farmacia.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le señalo con la mano y le digo: mire, están allá.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 6 de 10 · Farmacia · Manejo de imprevistos</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si a un cliente se le cae un frasco de jarabe y se rompe?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: no se preocupe, ya vamos a limpiarlo y le buscaré un nuevo frasco de su medicina.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: cuidado señor, se le cayó porque estaba distraído.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: ¡caramba, qué desastre! Vamos a tardar un buen tiempo limpiando esto.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 7 de 10 · Farmacia · Asesoría dermatológica</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--amber);margin-bottom:10px;"><span class="dot"></span>Conducta: Personalizo el trato con el cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente te consulta qué protector solar comprar?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le pregunto qué tipo de piel tiene y le recomiendo uno con factor de protección alto, ideal para su tipo de piel.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: son muy buenos todos, cualquiera le puede servir.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le digo: no sé señor, no conozco mucho de protectores solares.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 8 de 10 · Fila en caja mientras se etiqueta un anaquel</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="scenario-q">¿Qué harías si estás etiquetando un anaquel y ves que se forma una fila en las cajas?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Pauso la actividad y me dirijo rápidamente al área de cajas para ayudar a agilizar la fila.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Continúo etiquetando, ya que veo que pronto disminuirá la fila.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Solicito a los clientes que tengan paciencia, asegurándoles que pronto llegará su turno.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 9 de 10 · Mostrador · Cliente molesto</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se molesta porque el precio del anaquel no coincide con el de la caja y te grita?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: entiendo su molestia, vamos a buscar una solución al problema.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: por favor, cálmese señor, así no lo puedo atender.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Le pido que me respete.</span></div>
+      </div>
+    </div>
+
+    <div class="scenario-card" style="margin-bottom:16px;">
+      <div class="scenario-header">
+        <span class="lbl">Pregunta 10 de 10 · Pasillo · Saludo</span>
+        <span class="pill">No visible para el colaborador</span>
+      </div>
+      <div class="scenario-body">
+        <div class="tagline" style="--dc:var(--ftred);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
+        <div class="scenario-q">¿Qué harías si te cruzas en el pasillo con un cliente?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le sonrío y le digo: hola, bienvenido.</span></div>
+<div class="opt-row"><span class="letter">B</span><span class="txt">Le hago un gesto con la cabeza en señal de respeto.</span></div>
+<div class="opt-row"><span class="letter">C</span><span class="txt">Lo saludo agitando mi mano.</span></div>
+      </div>
+    </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Preguntas abiertas</div>
+        <h2>Para ilustrar los hallazgos con casos reales</h2>
+      </div>
+      <div class="open-q">
+        <span class="lbl">Pregunta 11 de 12 · Abierta</span>
+        <div class="q">¿Cuál es la situación que más se te complica al momento de ofrecer un buen servicio?</div>
+      </div>
+      <div class="open-q">
+        <span class="lbl">Pregunta 12 de 12 · Abierta</span>
+        <div class="q">Cuéntanos una situación real en la que lograste sorprender a un cliente, dándole más de lo que esperaba. ¿Qué hiciste?</div>
+      </div>
+    </section>
+  </div><!-- /tab-farmacia -->
+
   <footer>Diagnóstico de Servicio Situacional · Farmatodo — Resumen ejecutivo para aprobación</footer>
 </div>
+<script>
+function showTab(id){
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn2').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  document.querySelector('.tab-btn2[data-tab="'+id+'"]').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
 </body>
 </html>
