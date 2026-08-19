@@ -13,6 +13,7 @@
   --text-mid:#4A5568; --text-soft:#8A94A6;
   --card:#FFFFFF; --line:#E5EAF2;
   --amber:#B7791F; --amber-bg:#FBF1DF; --red:#C23B3B; --red-bg:#FBE9E9; --green:#1F9254; --green-bg:#E8F6EE;
+  --c-cercano:#1E82C7; --c-agilidad:#714D9D; --c-soluciones:#714D9D; --c-personalizo:#EE5098; --c-deleito:#EE5098;
   --shadow:0 4px 24px rgba(20,40,80,0.07); --shadow-md:0 12px 40px rgba(20,40,80,0.12);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -253,14 +254,15 @@ table.datatable tr:last-child td{border-bottom:none;}
     </div>
     <div class="scenario-card">
       <div class="scenario-header">
-        <span class="lbl">Escenario · Mostrador · Disponibilidad de producto</span>
+        <span class="lbl">Pregunta 1 de 10 · Misceláneos · Pasillo · Asesoría de producto</span>
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="scenario-q">Un cliente llega alterado porque el medicamento que reservó por teléfono no está disponible en tienda. ¿Qué haces?</div>
-        <div class="opt-row"><span class="letter">A</span><span class="txt">Explico el protocolo de sustitución y ofrezco alternativas del mismo principio activo.</span><span class="badge ok">Correcta</span></div>
-        <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo que revise mejor su reserva la próxima vez, porque yo no gestioné ese pedido.</span><span class="badge actitud">Actitud</span></div>
-        <div class="opt-row"><span class="letter">C</span><span class="txt">No sé cómo proceden las reservas, así que lo remito a otro colaborador sin más explicación.</span><span class="badge conocimiento">Conocimiento</span></div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="scenario-q">¿Qué harías si un cliente se muestra indeciso al elegir entre dos productos de dermocosméticos?</div>
+        <div class="opt-row"><span class="letter">A</span><span class="txt">Le ofrezco mi asesoría, resaltando las características de cada producto para facilitar su decisión.</span><span class="badge ok">Correcta</span></div>
+        <div class="opt-row"><span class="letter">B</span><span class="txt">Le indico cuál producto debe elegir para agilizar la venta.</span><span class="badge actitud">Actitud</span></div>
+        <div class="opt-row"><span class="letter">C</span><span class="txt">Permito que el cliente elija por su cuenta mientras aprovecho para realizar otras tareas.</span><span class="badge actitud">Actitud</span></div>
         <div class="scenario-note"><b>Por qué funciona:</b> ninguna opción suena obviamente "mala" — reduce el sesgo de responder lo que "se debería" decir, y la corrección es 100% automática.</div>
       </div>
     </div>
@@ -345,7 +347,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente se muestra indeciso al elegir entre dos productos de dermocosméticos?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le ofrezco mi asesoría, resaltando las características de cada producto para facilitar su decisión.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le indico cuál producto debe elegir para agilizar la venta.</span></div>
@@ -359,7 +361,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente se acerca al mostrador y te dice que necesita un producto urgentemente, pero no recuerda el nombre exacto?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le pregunto sobre las características del producto y trato de encontrar alternativas similares.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo que intente recordar mientras atiendo a otros clientes.</span></div>
@@ -373,7 +375,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--amber);margin-bottom:10px;"><span class="dot"></span>Conducta: Personalizo el trato con el cliente</div>
+        <div class="tagline" style="--dc:var(--c-personalizo);margin-bottom:10px;"><span class="dot"></span>Conducta: Personalizo el trato con el cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente solicita un champú para cabello graso y con caspa?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le recomiendo un champú específico para cabello graso con caspa, explicándole los beneficios.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le ofrezco cualquier champú de marca Farmatodo.</span></div>
@@ -387,7 +389,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente está molesto porque vio un descuento en la página web y no está reflejado en la tienda?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le ofrezco mi apoyo para realizar la compra por la app y así pueda recibir su descuento.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le comento que el descuento es únicamente en compras por la app.</span></div>
@@ -401,7 +403,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente solicita 7 pañales de bebé, pero en la tienda solo tienes 4 disponibles?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Valido la disponibilidad en otras tiendas y le indico dónde hay la cantidad que necesita, o le ofrezco solicitar una transferencia.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le informo que hoy solo puede llevarse 4, pero que puede regresar la próxima semana para ver si llegaron más.</span></div>
@@ -415,7 +417,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--ftred);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
+        <div class="tagline" style="--dc:var(--c-cercano);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
         <div class="scenario-q">¿Qué harías al terminar de atender a un cliente en caja?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: hasta pronto señor, gracias por su compra.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: gracias, siguiente en caja.</span></div>
@@ -429,7 +431,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="tagline" style="--dc:var(--c-agilidad);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
         <div class="scenario-q">¿Qué harías si un joven toma en sus manos 3 cremas mientras recorre la tienda?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: aquí tiene una cesta para poner los productos y que esté más cómodo.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: le recomiendo que tome dos, para que no se le caigan.</span></div>
@@ -443,7 +445,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="tagline" style="--dc:var(--c-agilidad);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
         <div class="scenario-q">¿Qué harías si estás etiquetando un anaquel y ves que se forma una fila en las cajas?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Pauso la actividad y me dirijo rápidamente al área de cajas para ayudar a agilizar la fila.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Continúo etiquetando, ya que veo que pronto disminuirá la fila.</span></div>
@@ -457,7 +459,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente se molesta porque el precio del anaquel no coincide con el de la caja y te grita?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: entiendo su molestia, vamos a buscar una solución al problema.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: por favor, cálmese señor, así no lo puedo atender.</span></div>
@@ -471,7 +473,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--ftred);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
+        <div class="tagline" style="--dc:var(--c-cercano);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
         <div class="scenario-q">¿Qué harías si te cruzas en el pasillo con un cliente?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le sonrío y le digo: hola, bienvenido.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le hago un gesto con la cabeza en señal de respeto.</span></div>
@@ -510,7 +512,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente llega alterado porque el medicamento que reservó por teléfono no está disponible en tienda?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Explico el protocolo de sustitución y ofrezco alternativas del mismo principio activo.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo que revise mejor su reserva la próxima vez, porque yo no gestioné ese pedido.</span></div>
@@ -524,7 +526,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si una señora te pregunta cuál es la dosis para tomarse una pastilla?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: no estoy seguro, permítame consultar con el farmacéutico y ya regreso.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: creo que si se toma 2 o 3 diarias le puede funcionar.</span></div>
@@ -538,7 +540,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--gold);margin-bottom:10px;"><span class="dot"></span>Conducta: Deleito al cliente</div>
+        <div class="tagline" style="--dc:var(--c-deleito);margin-bottom:10px;"><span class="dot"></span>Conducta: Deleito al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente se queja de un fuerte dolor lumbar y solicita el relajante muscular que le recetó su médico?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: veo que está muy adolorido; aquí contamos con servicio de inyectología para aplicarle de una vez el relajante intramuscular.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: sí claro, tengo estas dos opciones, ¿cuál prefiere?</span></div>
@@ -552,7 +554,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente se acerca a la farmacia preguntando si tienes algo para la gripa?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le pregunto cuántos años tiene el paciente y cuáles son sus síntomas antes de recomendar.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: claro, este medicamento seguro le puede ayudar.</span></div>
@@ -566,7 +568,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="tagline" style="--dc:var(--c-agilidad);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
         <div class="scenario-q">¿Qué harías si, mientras surtes un pasillo, un cliente te pregunta dónde se consiguen los multivitamínicos?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: permítame acompañarle para mostrarle.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: los conseguirá en el último pasillo, junto a farmacia.</span></div>
@@ -580,7 +582,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si a un cliente se le cae un frasco de jarabe y se rompe?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: no se preocupe, ya vamos a limpiarlo y le buscaré un nuevo frasco de su medicina.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: cuidado señor, se le cayó porque estaba distraído.</span></div>
@@ -594,7 +596,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--amber);margin-bottom:10px;"><span class="dot"></span>Conducta: Personalizo el trato con el cliente</div>
+        <div class="tagline" style="--dc:var(--c-personalizo);margin-bottom:10px;"><span class="dot"></span>Conducta: Personalizo el trato con el cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente te consulta qué protector solar comprar?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le pregunto qué tipo de piel tiene y le recomiendo uno con factor de protección alto, ideal para su tipo de piel.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: son muy buenos todos, cualquiera le puede servir.</span></div>
@@ -608,7 +610,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--teal);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
+        <div class="tagline" style="--dc:var(--c-agilidad);margin-bottom:10px;"><span class="dot"></span>Conducta: Actúo con agilidad para el cliente</div>
         <div class="scenario-q">¿Qué harías si estás etiquetando un anaquel y ves que se forma una fila en las cajas?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Pauso la actividad y me dirijo rápidamente al área de cajas para ayudar a agilizar la fila.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Continúo etiquetando, ya que veo que pronto disminuirá la fila.</span></div>
@@ -622,7 +624,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--blue);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
+        <div class="tagline" style="--dc:var(--c-soluciones);margin-bottom:10px;"><span class="dot"></span>Conducta: Brindo soluciones al cliente</div>
         <div class="scenario-q">¿Qué harías si un cliente se molesta porque el precio del anaquel no coincide con el de la caja y te grita?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le digo: entiendo su molestia, vamos a buscar una solución al problema.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le digo: por favor, cálmese señor, así no lo puedo atender.</span></div>
@@ -636,7 +638,7 @@ table.datatable tr:last-child td{border-bottom:none;}
         <span class="pill">No visible para el colaborador</span>
       </div>
       <div class="scenario-body">
-        <div class="tagline" style="--dc:var(--ftred);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
+        <div class="tagline" style="--dc:var(--c-cercano);margin-bottom:10px;"><span class="dot"></span>Conducta: Soy cercano con el cliente</div>
         <div class="scenario-q">¿Qué harías si te cruzas en el pasillo con un cliente?</div>
         <div class="opt-row"><span class="letter">A</span><span class="txt">Le sonrío y le digo: hola, bienvenido.</span></div>
 <div class="opt-row"><span class="letter">B</span><span class="txt">Le hago un gesto con la cabeza en señal de respeto.</span></div>
